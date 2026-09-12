@@ -49,4 +49,4 @@ The Medium design-process article is being prepared separately and is not yet pu
 
 ## Licensing
 
-No open-source licence has been selected yet. Public availability does not itself grant a licence. Third-party component definitions and branding retain their respective rights.
+This project is released under the [MIT License](LICENSE). Copyright © 2026 Reefwing Software. Third-party component definitions retain their respective licences, and trademark rights in branding are not granted by this licence.
