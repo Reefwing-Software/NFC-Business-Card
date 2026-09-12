@@ -2,7 +2,7 @@
 
 The supplied `nfc-card-both.png` is the visual reference. The published Rev C PCB file is `../Reefwing-PCB-RevC.json`. It contains native TopSilkLayer (3) and BottomSilkLayer (4) geometry, not merely a presentation mockup.
 
-Front: book title and subtitle, David Such, @reefwing, website, supplied telephone number, 3–4–2 neural-network links and labels, programming-pad labels. Electronics were moved below the contact text and rerouted. Back: vector trace of the supplied Reefwing logo, business descriptor, website, website QR, NFC-wave motif and no-battery wording. The programming pads remain on the front; the back explicitly says so rather than depicting nonexistent back pads.
+Front: book title and subtitle, David Such, @reefwing, website, 3–4–2 neural-network links and labels, programming-pad labels. The mobile number has been removed. Electronics were moved below the contact text and rerouted. Back: vector trace of the supplied Reefwing logo, business descriptor, website, website QR, NFC-wave motif and no-battery wording. The programming pads remain on the front; the back explicitly says so rather than depicting nonexistent back pads.
 
 QR payload: `https://www.reefwing.com.au/`. ReportLab generated a 29×29 module QR with M error correction; module pitch 0.65 mm, with a four-module quiet zone (24.05 mm total square). Camera decoding and physical scan verification are still pending. Native Vision decoder checks could not execute successfully in this environment.
 
