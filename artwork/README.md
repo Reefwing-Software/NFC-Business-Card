@@ -8,7 +8,7 @@ QR payload: `https://www.reefwing.com.au/`. ReportLab generated a 29×29 module 
 
 Bottom geometry is mirrored about the board centre for correct back-side reading. The preview presents the back as seen by a viewer, not as transparent top-down editor geometry.
 
-The logo is traced from the supplied raster reference and will benefit from a high-resolution original before final production. Compound lettering is decomposed into simple polygons to avoid unsupported holes in EasyEDA solid regions. Text is vector artwork, not editable EasyEDA text fields; regenerate with `add_silkscreen.py` to change wording.
+The logo was refreshed on 19 September 2026 using the higher-resolution supplied `Reefwing_Studios.png`. The bird is simplified to smooth monochrome contours; the lettering is rebuilt with complete vector glyphs, retaining “Reefwing Software” for this card. This is an adapted silkscreen logo, not an exact trace of the Studios wordmark. The old low-resolution crop clipped the R and produced stair-stepped outlines. Compound lettering is decomposed into simple polygons to avoid unsupported holes in EasyEDA solid regions. Text is vector artwork, not editable EasyEDA text fields; regenerate locally with `add_silkscreen.py` to change wording.
 
 The preview uses a white-mask/black-silkscreen appearance. Antenna copper is shown in muted gold for orientation; this does not add antenna solder-mask openings or specify a manufacturing finish. The preview's rounded card corners are illustrative: the actual board outline remains rectangular 85×55 mm. Preview component bodies and reference labels are schematic depictions; inspect EasyEDA for exact assembly geometry.
 
