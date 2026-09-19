@@ -8,7 +8,7 @@ QR payload: `https://www.reefwing.com.au/`. ReportLab generated a 29×29 module 
 
 Bottom geometry is mirrored about the board centre for correct back-side reading. The preview presents the back as seen by a viewer, not as transparent top-down editor geometry.
 
-The bottom logo now uses the approved `Reefwing_Studios-restored.png`, including the complete g, Studios wording and bird standing on the S. This is an AI-assisted restoration of the supplied PNG, approved by the user. It is converted to monochrome at grayscale threshold 155, cropped only to the ink bounding box, and uniformly scaled to fit 35 × 17 mm. No lettering is substituted and no logo elements are repositioned during conversion. The native silkscreen uses merged pixel-run polygons; fine photographic detail may not survive physical printing.
+The bottom logo now uses `Reefwing_Software-restored.png`, a requested Software-wording variant of the restored Studios logo. The complete g and bird standing on the S are retained. The Studios version remains available separately. The image was edited with the built-in image generator and is converted to monochrome at grayscale threshold 155, cropped only to the ink bounding box, and uniformly scaled to fit 35 × 17 mm. No lettering is substituted and no logo elements are repositioned during PCB conversion. The native silkscreen uses merged pixel-run polygons; fine photographic detail may not survive physical printing.
 
 The earlier reconstructed Software logo has been replaced at the user's request by the approved restored PNG artwork. Silkscreen is native geometry, not editable EasyEDA text fields. Regenerate locally with `add_silkscreen.py` to change the artwork.
 
