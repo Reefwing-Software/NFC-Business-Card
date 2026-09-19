@@ -12,7 +12,11 @@ FQBN: `megaTinyCore:megaavr:atxy6:chip=816,clock=1internal,millis=disabled,bodmo
 | Optional FD gating, `compiler.cpp.extra_flags=-DREEFWING_REQUIRE_FIELD=1` | PASS: 832 bytes flash, 2 bytes static RAM; no compiler warnings |
 | Incorrect `millis=enabled` configuration | Correctly rejected with an instruction to disable millis/micros |
 | GPIO mapping review | D1–D9 match Rev C PA4–PA7/PB0–PB4 LED nets; PA0/UPDI is not modified |
+| ReefwingWriteURL, warnings set to all | PASS: 2498 bytes flash, 58 bytes static RAM; no compiler warnings |
+| URL provisioning host tests | PASS: URI decoding, fresh CC initialization, I²C address/UID preservation, write order, already-correct no-write path, RF/busy/error rejection, protected/configuration rejection, communication failure, read-back mismatch and failed-tail recovery state |
 
 RAM figures are static allocation, not measured peak stack usage. Compiler success does not validate timing, current consumption, rail stability, flash programming, fuse values, FD behaviour or NFC interoperability.
 
-Before distributing cards, verify all nine LEDs and one-at-a-time operation on external 3 V power, upload verification and fuse readback, then NFC startup, repeated taps, brightness, harvested-rail sag/recovery and URL reading on representative phones. If using field gating, provision and measure FD_N behaviour separately. No NDEF or tag-register writes are implemented in this application.
+Before distributing cards, verify all nine LEDs and one-at-a-time operation on external 3 V power, upload verification and fuse readback, then NFC startup, repeated taps, brightness, harvested-rail sag/recovery and URL reading on representative phones. If using field gating, provision and measure FD_N behaviour separately. The animation does not write NDEF or tag registers; the separate URL utility writes the NDEF blocks and initializes a blank capability container, then clears the volatile I²C lock.
+
+URL tests compile the actual `ProvisionURL.h` logic against a simulated tag. They do not validate electrical I²C timing, Wire transport on hardware, EEPROM behavior during supply interruption or phone interoperability. On this macOS host, the C++ test build required `-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk/usr/include/c++/v1` to locate the installed standard-library headers. The sketch uses megaTinyCore's built-in Wire library; no additional Arduino library installation is required.

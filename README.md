@@ -28,7 +28,7 @@ The preview is illustrative: the actual board outline is rectangular, 85 × 55 m
 | [Reefwing-PCB-RevC.json](Reefwing-PCB-RevC.json) | Native EasyEDA Standard PCB with silkscreen |
 | [footprints/](footprints/) | Native antenna, programming-pad and solder-bridge footprints |
 | [REVIEW-REV-C.md](REVIEW-REV-C.md) | Review decisions, component changes and dated sourcing checks |
-| [firmware/](firmware/) | Arduino sketch, UPDI upload guide and compilation results |
+| [firmware/](firmware/) | Arduino animation and NFC URL provisioning sketches, UPDI upload guide and validation results |
 | [FIRMWARE-REQUIREMENTS.md](FIRMWARE-REQUIREMENTS.md) | Firmware and programming-fixture requirements |
 | [artwork/README.md](artwork/README.md) | Artwork geometry and preview limitations |
 

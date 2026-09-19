@@ -61,7 +61,30 @@ After provisioning and verifying NTAG **FD_ON=00 / FD_OFF=00**, set `REEFWING_RE
 
 The alternate TWI route PA1/SDA and PA2/SCL is selected, but I²C stays disabled. If adding Wire, restore these input buffers and call `Wire.swap(1)` before `Wire.begin()` so the library does not select the LED pins.
 
-Write `https://www.reefwing.com.au/` separately as an **NDEF URI record** using an NFC writing app. Uploading this sketch does not write that record or provision FD. Check URL reading independently of animation.
+Write `https://www.reefwing.com.au/` using the provisioning sketch below, or separately as an **NDEF URI record** using an NFC writing app. Uploading the animation sketch does not write that record or provision FD. Check URL reading independently of animation.
+
+## Write the NFC URL over I²C
+
+Open [ReefwingWriteURL/ReefwingWriteURL.ino](ReefwingWriteURL/ReefwingWriteURL.ino), keeping `ProvisionURL.h` in the same folder. This separate, one-time utility replaces the tag's existing NDEF message with **https://www.reefwing.com.au/**. It targets the Rev C NT3H2111 (1K) at its default 7-bit I²C address **0x55**. It is compile-checked and host-tested, but not yet tested on a physical card.
+
+1. Use the Arduino settings and UPDI wiring above: **JP1 open, external 3 V power, no NFC field**. Keep the supply and probe contacts stable until verification completes. The programmer supplies both the MCU and NTAG VCC.
+2. Upload **ReefwingWriteURL** using the programmer. After a one-second startup delay, D4 lights briefly during provisioning.
+3. Wait for **D9 to blink slowly** (half-second on/off): the URL and capability container have passed I²C read-back verification. No Serial Monitor is needed. If D1 flashes instead, count flashes between the two-second pauses using the table below; resolve the problem before proceeding.
+4. With JP1 still open, upload **ReefwingNFCCard** to restore the animation. Reprogramming the MCU does not erase the separate NTAG EEPROM.
+5. Disconnect the programmer, bridge JP1, then tap with a phone. Confirm that it offers the Reefwing website; opening the URL may require a tap/confirmation in the phone UI.
+
+| D1 flashes | Meaning |
+| --- | --- |
+| 1 | I²C communication failed: check power, address, connections and pull-ups |
+| 2 | RF field/lock present, or EEPROM busy/write-error status; remove RF and power-cycle before retrying |
+| 3 | Unsupported/protected configuration: static locks, password protection, nonstandard capability container, SRAM mirror or pass-through mode; utility makes no protection changes |
+| 4 | Written block did not match read-back; check stable power and contacts |
+
+The writer uses PA1/SDA and PA2/SCL via `Wire.swap(1)`. It writes complete 16-byte EEPROM blocks with a 10 ms programming pause and verifies each block. It publishes the NDEF length after writing the tail. Fresh tags also receive capability container `E1 10 6D 00`; block 0 is handled specially to preserve the I²C address. Existing capability containers must match that value or be all zero. The first 32 bytes of user memory are replaced; later memory is untouched. A correctly provisioned tag incurs no further EEPROM writes on restart.
+
+This is not a general-purpose tag formatter: locked/password-protected or differently configured tags need separate assessment. Passwords, lock bits and persistent configuration registers are not changed. FD settings are not provisioned. Field checks reduce accidental RF contention but do not replace keeping readers away throughout programming. An interrupted write can leave an empty/partial message; restore stable power and rerun, then verify by phone. Do not leave this utility installed as the card's normal firmware.
+
+Protocol reference: [NXP NT3H2111/2211 datasheet](https://www.nxp.com/docs/en/data-sheet/NT3H2111_2211.pdf), capability container/memory maps and I²C EEPROM/session access sections.
 
 ## Compile check
 
@@ -74,5 +97,12 @@ arduino-cli compile \
 ```
 
 See [VALIDATION.md](VALIDATION.md) for results. The compile command does not set fuses or upload.
+
+Use the same compile command with `firmware/ReefwingWriteURL` to build the URL writer. Run the portable provisioning tests with:
+
+```sh
+c++ -std=c++11 -Wall -Wextra -pedantic firmware/tests/provision_url_test.cpp -o /tmp/provision_url_test
+/tmp/provision_url_test
+```
 
 References: [megaTinyCore](https://github.com/SpenceKonde/megaTinyCore), [ATtiny416/816 datasheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/ATtiny416-816-DataSheet-DS40001913C.pdf).
