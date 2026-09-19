@@ -6,7 +6,7 @@ Inspired by [Wilson Harper's NFC business card](https://wilsonharper.net/project
 
 ## Status: Rev C prototype
 
-The schematic and routed PCB are designed in **EasyEDA Standard**, targeting JLCPCB manufacture and assembly. These files are a work in progress, **not a manufacturing release**. No boards have been bench-tested and no working firmware is included yet.
+The schematic and routed PCB are designed in **EasyEDA Standard**, targeting JLCPCB manufacture and assembly. These files are a work in progress, **not a manufacturing release**. Arduino animation firmware is included and compile-checked; hardware operation has not yet been tested by this workflow.
 
 ![Front and back artwork preview](artwork/silkscreen-preview.png)
 
@@ -28,7 +28,8 @@ The preview is illustrative: the actual board outline is rectangular, 85 × 55 m
 | [Reefwing-PCB-RevC.json](Reefwing-PCB-RevC.json) | Native EasyEDA Standard PCB with silkscreen |
 | [footprints/](footprints/) | Native antenna, programming-pad and solder-bridge footprints |
 | [REVIEW-REV-C.md](REVIEW-REV-C.md) | Review decisions, component changes and dated sourcing checks |
-| [FIRMWARE-REQUIREMENTS.md](FIRMWARE-REQUIREMENTS.md) | Firmware and programming-fixture requirements; illustrative code only |
+| [firmware/](firmware/) | Arduino sketch, UPDI upload guide and compilation results |
+| [FIRMWARE-REQUIREMENTS.md](FIRMWARE-REQUIREMENTS.md) | Firmware and programming-fixture requirements |
 | [artwork/README.md](artwork/README.md) | Artwork geometry and preview limitations |
 
 In EasyEDA Standard, use **File → Open → EasyEDA…** to import the schematic or PCB JSON. The design files contain their placed symbols and footprints. The separate footprint JSON files can be imported as PCB libraries.
@@ -42,7 +43,7 @@ Before fabrication:
 - Correct and verify PCB BOM exclusions: C1 is DNP; L1, J1 and JP1 are copper features, not assembly placements. C1, L1 and J1 currently retain PCB-level BOM flags and must be excluded from any assembly export. The schematic exclusions are set.
 - Review Gerbers, solder mask, paste, component orientation, silkscreen clearances and JLCPCB assembly preview.
 - Recheck stock for all eight populated order codes. Stock readings in the review are dated observations, not reservations.
-- Implement and test firmware, verify fuses, and build the regulated 3.0 V UPDI fixture. Program with JP1 open and no NFC field; disconnect the fixture before bridging JP1.
+- Upload and bench-test firmware, verify fuses, and check the 3 V UPDI Friend/probe-clip connections. Program with JP1 open and no NFC field; disconnect the programmer before bridging JP1.
 - Measure antenna resonance and tune C1 as needed; test harvested-rail startup and sag, LED brightness, phone compatibility and physical QR scanning.
 
 The Medium design-process article is being prepared separately and is not yet published.
