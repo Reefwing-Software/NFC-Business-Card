@@ -1,5 +1,7 @@
 # Reefwing NFC Business Card
 
+[![license](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![last commit](https://img.shields.io/github/last-commit/Reefwing-Software/NFC-Business-Card?color=red)](https://github.com/Reefwing-Software/NFC-Business-Card/commits/main/) [![open source](https://badgen.net/badge/open/source/blue?icon=github)](https://github.com/Reefwing-Software/NFC-Business-Card)
+
 A battery-free PCB business card promoting [Embedded AI](https://nostarch.com/embedded-ai) by David Such and [Reefwing Software](https://www.reefwing.com.au/). An NFC reader field supplies energy for a nine-LED, 3–4–2 neural-network animation. The animation illustrates a network; it does not perform inference.
 
 Inspired by [Wilson Harper's NFC business card](https://wilsonharper.net/projects/businesscard/).
