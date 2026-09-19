@@ -22,6 +22,16 @@ The preview is illustrative: the actual board outline is rectangular, 85 × 55 m
 - Three front-side UPDI programming pads and a normally-open solder bridge for power isolation.
 - Front and back silkscreen promoting the book and company; QR payload: `https://www.reefwing.com.au/`.
 
+## System block diagram
+
+The diagram below shows how the NTAG harvests energy from the phone's NFC field and supplies the ATtiny816 through JP1. The NTAG stores the website URL as an NDEF record, while the microcontroller animates the nine LEDs. Colours distinguish power, data, control and LED-drive connections.
+
+![Reefwing NFC business card system block diagram showing the antenna, NTAG NT3H2111, ATtiny816, LEDs and UPDI programming interface](artwork/system-diagram/reefwing-nfc-system.png)
+
+For normal NFC-powered operation, JP1 is closed. During programming, JP1 must be open so the UPDI Friend's external 3 V supply powers both chips without feeding the NTAG's harvesting output. The I²C connection is used by the separate URL provisioning sketch; the normal animation leaves I²C disabled, and field-detect gating is optional.
+
+The diagram is based on the supplied device datasheets and Rev C design. See the [diagram notes and sources](artwork/system-diagram/README.md), or download the [editable SVG](artwork/system-diagram/reefwing-nfc-system.svg).
+
 ## Files
 
 | File | Purpose |
@@ -33,6 +43,7 @@ The preview is illustrative: the actual board outline is rectangular, 85 × 55 m
 | [firmware/](firmware/) | Arduino animation and NFC URL provisioning sketches, UPDI upload guide and validation results |
 | [FIRMWARE-REQUIREMENTS.md](FIRMWARE-REQUIREMENTS.md) | Firmware and programming-fixture requirements |
 | [artwork/README.md](artwork/README.md) | Artwork geometry and preview limitations |
+| [artwork/system-diagram/](artwork/system-diagram/) | Colour system block diagram, editable SVG, PNG and generator |
 
 In EasyEDA Standard, use **File → Open → EasyEDA…** to import the schematic or PCB JSON. The design files contain their placed symbols and footprints. The separate footprint JSON files can be imported as PCB libraries.
 

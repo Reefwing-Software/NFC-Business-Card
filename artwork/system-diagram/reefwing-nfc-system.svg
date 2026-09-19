@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120">
+<defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#183049} .small{font-size:19px}</style>
+<marker id="power" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#d88715"/></marker>
+<marker id="data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#168ba0"/></marker>
+<marker id="control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#7754b5"/></marker>
+<marker id="gpio" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#32906c"/></marker>
+</defs>
+<rect x="0" y="0" width="1800" height="1120" rx="0" fill="#f5f8fc" stroke="none" stroke-width="2"/>
+<text x="50" y="65" font-size="19" font-weight="700" style="fill:#168ba0" text-anchor="start">REEFWING  /  NFC BUSINESS CARD</text>
+<text x="50" y="120" font-size="40" font-weight="700" style="fill:#183049" text-anchor="start">A battery-free card with a neural-network light show</text>
+<text x="50" y="161" font-size="22" font-weight="400" style="fill:#617185" text-anchor="start">System block diagram • Rev C prototype • Functional connections, not a wiring schematic</text>
+<polyline points="850,340 850,230 985,230" fill="none" stroke="#d88715" stroke-width="4" stroke-linejoin="round" marker-end="url(#power)"/>
+<rect x="985" y="198" width="110" height="64" rx="12" fill="#fff2d9" stroke="#d88715" stroke-width="2"/>
+<text x="1040" y="237" font-size="25" font-weight="700" style="fill:#183049" text-anchor="middle">JP1</text>
+<polyline points="1095,230 1295,230 1295,340" fill="none" stroke="#d88715" stroke-width="4" stroke-linejoin="round" marker-end="url(#power)"/>
+<polyline points="1160,230 1160,285 865,285" fill="none" stroke="#d88715" stroke-width="4" stroke-linejoin="round"/>
+<path d="M865 285 Q850 255 835 285" fill="none" stroke="#d88715" stroke-width="4"/>
+<polyline points="835,285 650,285 650,340" fill="none" stroke="#d88715" stroke-width="4" stroke-linejoin="round" marker-end="url(#power)"/>
+<text x="635" y="217" font-size="21" font-weight="700" style="fill:#a66508" text-anchor="start">Harvested power</text>
+<text x="1177" y="211" font-size="21" font-weight="700" style="fill:#a66508" text-anchor="start">VDD rail</text>
+<text x="635" y="323" font-size="18" font-weight="700" style="fill:#a66508" text-anchor="end">VCC</text>
+<text x="830" y="323" font-size="18" font-weight="700" style="fill:#a66508" text-anchor="start">VOUT</text>
+<text x="1308" y="323" font-size="18" font-weight="700" style="fill:#a66508" text-anchor="start">VDD</text>
+<rect x="50" y="370" width="195" height="270" rx="18" fill="#eaf1fc" stroke="#a6badd" stroke-width="2"/>
+<text x="147" y="417" font-size="25" font-weight="700" style="fill:#183049" text-anchor="middle">NFC phone</text>
+<rect x="107" y="443" width="80" height="115" rx="12" fill="#fff" stroke="#7c97c0" stroke-width="2"/>
+<text x="147" y="490" font-size="21" font-weight="700" style="fill:#183049" text-anchor="middle">NFC</text>
+<text x="147" y="535" font-size="30" font-weight="700" style="fill:#183049" text-anchor="middle">↗</text>
+<text x="147" y="599" font-size="20" font-weight="400" style="fill:#183049" text-anchor="middle">Reads URL</text>
+<polyline points="245,485 315,485" fill="none" stroke="#168ba0" stroke-width="4" stroke-linejoin="round" marker-end="url(#data)" marker-start="url(#data)" stroke-dasharray="9 7"/>
+<text x="280" y="451" font-size="18" font-weight="700" style="fill:#183049" text-anchor="middle">RF</text>
+<rect x="315" y="370" width="215" height="270" rx="18" fill="#e7f5f6" stroke="#88c6cd" stroke-width="2"/>
+<text x="422" y="417" font-size="24" font-weight="700" style="fill:#183049" text-anchor="middle">PCB antenna</text>
+<rect x="352" y="446" width="140" height="91" rx="10" fill="none" stroke="#168ba0" stroke-width="2"/>
+<rect x="359" y="453" width="126" height="77" rx="10" fill="none" stroke="#168ba0" stroke-width="2"/>
+<rect x="366" y="460" width="112" height="63" rx="10" fill="none" stroke="#168ba0" stroke-width="2"/>
+<rect x="373" y="467" width="98" height="49" rx="10" fill="none" stroke="#168ba0" stroke-width="2"/>
+<text x="422" y="575" font-size="20" font-weight="400" style="fill:#183049" text-anchor="middle">L1 • four turns</text>
+<text x="422" y="609" font-size="19" font-weight="400" style="fill:#183049" text-anchor="middle">C1: tuning / DNP</text>
+<polyline points="530,485 600,485" fill="none" stroke="#168ba0" stroke-width="4" stroke-linejoin="round" marker-end="url(#data)" marker-start="url(#data)"/>
+<text x="565" y="451" font-size="16" font-weight="700" style="fill:#183049" text-anchor="middle">LA / LB</text>
+<text x="55" y="686" font-size="21" font-weight="700" style="fill:#168ba0" text-anchor="start">13.56 MHz • RF energy + bidirectional NFC data</text>
+<rect x="600" y="340" width="350" height="350" rx="18" fill="#fff" stroke="#168ba0" stroke-width="2"/>
+<rect x="602" y="342" width="346" height="76" rx="16" fill="#ddf3f5" stroke="none" stroke-width="2"/>
+<text x="625" y="374" font-size="20" font-weight="700" style="fill:#183049" text-anchor="start">U1  /  NXP NTAG I²C plus</text>
+<text x="625" y="402" font-size="26" font-weight="700" style="fill:#183049" text-anchor="start">NT3H2111</text>
+<text x="625" y="454" font-size="22" font-weight="700" style="fill:#183049" text-anchor="start">RF interface + rectifier</text>
+<text x="625" y="482" font-size="19" font-weight="400" style="fill:#617185" text-anchor="start">NFC Forum Type 2 Tag</text>
+<text x="625" y="535" font-size="22" font-weight="700" style="fill:#183049" text-anchor="start">EEPROM + NDEF URI</text>
+<text x="625" y="563" font-size="19" font-weight="400" style="fill:#617185" text-anchor="start">Stores the website address</text>
+<text x="625" y="616" font-size="22" font-weight="700" style="fill:#183049" text-anchor="start">I²C interface + FD output</text>
+<text x="625" y="644" font-size="19" font-weight="400" style="fill:#617185" text-anchor="start">Energy harvesting on VOUT</text>
+<polyline points="950,468 1120,468" fill="none" stroke="#168ba0" stroke-width="4" stroke-linejoin="round" marker-end="url(#data)" marker-start="url(#data)"/>
+<text x="1035" y="420" font-size="23" font-weight="700" style="fill:#168ba0" text-anchor="middle">I²C</text>
+<text x="1035" y="447" font-size="18" font-weight="400" style="fill:#183049" text-anchor="middle">SDA / SCL</text>
+<text x="1035" y="500" font-size="18" font-weight="400" style="fill:#183049" text-anchor="middle">PA1 / PA2</text>
+<polyline points="950,583 1120,583" fill="none" stroke="#7754b5" stroke-width="4" stroke-linejoin="round" marker-end="url(#control)"/>
+<text x="1035" y="552" font-size="21" font-weight="700" style="fill:#7754b5" text-anchor="middle">FD → PA3</text>
+<text x="1035" y="618" font-size="17" font-weight="400" style="fill:#183049" text-anchor="middle">Open-drain</text>
+<text x="1035" y="642" font-size="17" font-weight="400" style="fill:#183049" text-anchor="middle">100 kΩ pull-up</text>
+<rect x="1120" y="340" width="350" height="350" rx="18" fill="#fff" stroke="#7754b5" stroke-width="2"/>
+<rect x="1122" y="342" width="346" height="76" rx="16" fill="#ede7f7" stroke="none" stroke-width="2"/>
+<text x="1145" y="374" font-size="20" font-weight="700" style="fill:#183049" text-anchor="start">U2  /  Microchip tinyAVR</text>
+<text x="1145" y="402" font-size="26" font-weight="700" style="fill:#183049" text-anchor="start">ATtiny816</text>
+<text x="1145" y="454" font-size="22" font-weight="700" style="fill:#183049" text-anchor="start">8-bit AVR CPU</text>
+<text x="1145" y="482" font-size="18" font-weight="400" style="fill:#617185" text-anchor="start">1 MHz in this project</text>
+<text x="1145" y="535" font-size="22" font-weight="700" style="fill:#183049" text-anchor="start">8 KB Flash • 512 B SRAM</text>
+<text x="1145" y="563" font-size="18" font-weight="400" style="fill:#617185" text-anchor="start">Animation + URL writer sketches</text>
+<text x="1145" y="616" font-size="22" font-weight="700" style="fill:#183049" text-anchor="start">RTC + GPIO + TWI + UPDI</text>
+<text x="1145" y="644" font-size="18" font-weight="400" style="fill:#617185" text-anchor="start">Sleeps between animation steps</text>
+<polyline points="1470,485 1550,485" fill="none" stroke="#32906c" stroke-width="4" stroke-linejoin="round" marker-end="url(#gpio)"/>
+<text x="1510" y="453" font-size="17" font-weight="700" style="fill:#32906c" text-anchor="middle">GPIO</text>
+<rect x="1550" y="370" width="200" height="270" rx="18" fill="#e8f5ed" stroke="#8ec5a6" stroke-width="2"/>
+<text x="1650" y="414" font-size="24" font-weight="700" style="fill:#183049" text-anchor="middle">9 red LEDs</text>
+<circle cx="1595" cy="470" r="9" fill="#ed6b56"/>
+<circle cx="1595" cy="510" r="9" fill="#ed6b56"/>
+<circle cx="1595" cy="550" r="9" fill="#ed6b56"/>
+<circle cx="1650" cy="450" r="9" fill="#ed6b56"/>
+<circle cx="1650" cy="490" r="9" fill="#ed6b56"/>
+<circle cx="1650" cy="530" r="9" fill="#ed6b56"/>
+<circle cx="1650" cy="570" r="9" fill="#ed6b56"/>
+<circle cx="1705" cy="485" r="9" fill="#ed6b56"/>
+<circle cx="1705" cy="535" r="9" fill="#ed6b56"/>
+<text x="1650" y="606" font-size="20" font-weight="400" style="fill:#183049" text-anchor="middle">1 kΩ per LED</text>
+<text x="1445" y="726" font-size="19" font-weight="700" style="fill:#32906c" text-anchor="start">PA4–PA7 / PB0–PB4</text>
+<text x="1517" y="755" font-size="18" font-weight="400" style="fill:#617185" text-anchor="start">One LED on at a time</text>
+<rect x="50" y="780" width="910" height="205" rx="18" fill="#fff" stroke="#dbe4ee" stroke-width="2"/>
+<text x="75" y="819" font-size="20" font-weight="700" style="fill:#168ba0" text-anchor="start">TWO OPERATING MODES</text>
+<text x="75" y="859" font-size="23" font-weight="700" style="fill:#183049" text-anchor="start">NFC use: JP1 closed; the phone powers the card.</text>
+<text x="75" y="891" font-size="21" font-weight="400" style="fill:#183049" text-anchor="start">VOUT typically provides 2 V at 5 mA with an NFC phone.*</text>
+<text x="75" y="930" font-size="23" font-weight="700" style="fill:#183049" text-anchor="start">Programming: JP1 open; external 3 V powers both ICs.</text>
+<text x="75" y="962" font-size="21" font-weight="400" style="fill:#183049" text-anchor="start">Keep the card away from NFC readers while programming.</text>
+<rect x="1090" y="840" width="540" height="145" rx="18" fill="#fff2d9" stroke="#d88715" stroke-width="2"/>
+<text x="1115" y="879" font-size="23" font-weight="700" style="fill:#183049" text-anchor="start">J1  /  Three pogo programming pads</text>
+<text x="1115" y="917" font-size="22" font-weight="400" style="fill:#183049" text-anchor="start">GND • 3V0 / VDD • UPDI</text>
+<text x="1115" y="951" font-size="21" font-weight="400" style="fill:#617185" text-anchor="start">Adafruit UPDI Friend set to 3 V</text>
+<polyline points="1210,840 1210,690" fill="none" stroke="#7754b5" stroke-width="4" stroke-linejoin="round" marker-end="url(#control)"/>
+<text x="1192" y="784" font-size="18" font-weight="700" style="fill:#7754b5" text-anchor="end">UPDI / PA0</text>
+<polyline points="1380,840 1380,690" fill="none" stroke="#d88715" stroke-width="4" stroke-linejoin="round" marker-end="url(#power)"/>
+<text x="1396" y="790" font-size="18" font-weight="700" style="fill:#a66508" text-anchor="start">3 V → VDD rail</text>
+<polyline points="50,1030 95,1030" fill="none" stroke="#d88715" stroke-width="4" stroke-linejoin="round"/>
+<text x="107" y="1037" font-size="19" font-weight="400" style="fill:#183049" text-anchor="start">Power</text>
+<polyline points="235,1030 280,1030" fill="none" stroke="#168ba0" stroke-width="4" stroke-linejoin="round"/>
+<text x="292" y="1037" font-size="19" font-weight="400" style="fill:#183049" text-anchor="start">RF / I²C data</text>
+<polyline points="485,1030 530,1030" fill="none" stroke="#7754b5" stroke-width="4" stroke-linejoin="round"/>
+<text x="542" y="1037" font-size="19" font-weight="400" style="fill:#183049" text-anchor="start">Control / programming</text>
+<polyline points="845,1030 890,1030" fill="none" stroke="#32906c" stroke-width="4" stroke-linejoin="round"/>
+<text x="902" y="1037" font-size="19" font-weight="400" style="fill:#183049" text-anchor="start">LED drive</text>
+<text x="50" y="1075" font-size="18" font-weight="400" style="fill:#617185" text-anchor="start">*Harvested output depends on field strength, antenna and distance. All blocks share GND; decoupling and bus pull-ups omitted.</text>
+<text x="50" y="1103" font-size="17" font-weight="400" style="fill:#617185" text-anchor="start">Sources: NXP NT3H2111/2211 §§6, 8.6; Microchip DS40002288A §§2–5; Reefwing Rev C schematic and firmware.</text>
+</svg>
