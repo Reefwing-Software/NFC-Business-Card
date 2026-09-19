@@ -1,0 +1,5 @@
+Tool: built-in image_gen; AI-assisted restoration, not an exact recovery of original pixels.
+Source: Reefwing_Studios.png
+Output: Reefwing_Studios-restored.png (1254 x 1254 pixels)
+
+Use case: precise-object-edit. Edit target: supplied Reefwing_Studios.png. Restore this exact logo by extending the white canvas to include the missing right edge of the final lowercase g in Reefwing, and any tiny clipped left edge of the bird/S. Preserve the original italic letterforms, sizes relative to each other, black lettering, photographic Australian magpie, and especially its feet standing on the upper curve of the S in Studios. Exact text: Reefwing on first line, Studios on second. Do not redesign, substitute fonts, rearrange or stylize. White background, generous clear white margin on every side; no part touching canvas edges. Produce high resolution ideally 2048x2048 or greater with crisp lettering and faithful bird detail. This is a restoration for a PCB logo source asset, not a PCB mockup. No additional text, borders or shadows.

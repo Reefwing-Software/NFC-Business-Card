@@ -8,9 +8,9 @@ QR payload: `https://www.reefwing.com.au/`. ReportLab generated a 29×29 module 
 
 Bottom geometry is mirrored about the board centre for correct back-side reading. The preview presents the back as seen by a viewer, not as transparent top-down editor geometry.
 
-The bottom logo now uses the supplied `Reefwing_Studios.png` directly, including the Studios wording and the bird standing on the S. It is converted to monochrome at grayscale threshold 155, cropped only to the ink bounding box, and uniformly scaled to fit 35 × 17 mm. No lettering is substituted and no logo elements are repositioned. Existing clipping at the source image edges remains. The native silkscreen uses merged pixel-run polygons; fine photographic detail may not survive physical printing.
+The bottom logo now uses the approved `Reefwing_Studios-restored.png`, including the complete g, Studios wording and bird standing on the S. This is an AI-assisted restoration of the supplied PNG, approved by the user. It is converted to monochrome at grayscale threshold 155, cropped only to the ink bounding box, and uniformly scaled to fit 35 × 17 mm. No lettering is substituted and no logo elements are repositioned during conversion. The native silkscreen uses merged pixel-run polygons; fine photographic detail may not survive physical printing.
 
-The earlier reconstructed Software logo has been replaced at the user's request by the actual PNG artwork. Silkscreen is native geometry, not editable EasyEDA text fields. Regenerate locally with `add_silkscreen.py` to change the artwork.
+The earlier reconstructed Software logo has been replaced at the user's request by the approved restored PNG artwork. Silkscreen is native geometry, not editable EasyEDA text fields. Regenerate locally with `add_silkscreen.py` to change the artwork.
 
 The preview uses a white-mask/black-silkscreen appearance. Antenna copper is shown in muted gold for orientation; this does not add antenna solder-mask openings or specify a manufacturing finish. The preview's rounded card corners are illustrative: the actual board outline remains rectangular 85×55 mm. Preview component bodies and reference labels are schematic depictions; inspect EasyEDA for exact assembly geometry.
 
