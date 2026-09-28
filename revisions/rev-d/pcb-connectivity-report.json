@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "nets_checked": 27,
+  "unconnected": {},
+  "note": "Antenna modeled as two separate RF nets; winding continuity is intentional."
+}

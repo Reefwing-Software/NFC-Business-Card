@@ -1,0 +1,9 @@
+{
+  "minimum_required_mm": 0.15,
+  "violations": [],
+  "intentional_RF_pairs_excluded": 6,
+  "limitations": [
+    "RF winding connections reviewed separately",
+    "This report covers copper clearance only; see validation.json for pad-mask/silk and board-edge checks"
+  ]
+}

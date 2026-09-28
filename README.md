@@ -6,13 +6,13 @@ A battery-free PCB business card promoting [Embedded AI](https://nostarch.com/em
 
 Inspired by [Wilson Harper's NFC business card](https://wilsonharper.net/projects/businesscard/).
 
-## Status: Rev C prototype
+## Status: Rev D design candidate
 
-The schematic and routed PCB are designed in **EasyEDA Standard**, targeting JLCPCB manufacture and assembly. These files are a work in progress, **not a manufacturing release**. Arduino animation firmware is included and compile-checked; hardware operation has not yet been tested by this workflow.
+Rev D corrects the LED polarity error found during Rev C testing, adds 25 labelled probe pads, and rounds the 85 × 55 mm board's corners to a 3 mm radius. Both native files target **EasyEDA Standard** and JLCPCB manufacture. Rev C remains available as the historical manufactured baseline; do not reuse its LED polarity mapping for new boards.
 
-![Front and back artwork preview](artwork/silkscreen-preview.png)
+![Rev D front preview](revisions/rev-d/pcb-front.png)
 
-The preview is illustrative: the actual board outline is rectangular, 85 × 55 mm. Preview colours do not specify solder mask or surface finish.
+See the [Rev D review, test-pad guide and orientation checks](revisions/rev-d/README.md). This is **not yet a manufacturing release**: native EasyEDA ERC/DRC, exported Gerbers, JLCPCB assembly orientation and first-article testing remain to be verified. Preview colours are illustrative.
 
 ## Design
 
@@ -36,8 +36,11 @@ The diagram is based on the supplied device datasheets and Rev C design. See the
 
 | File | Purpose |
 | --- | --- |
-| [Reefwing-NFC-Card-RevC.json](Reefwing-NFC-Card-RevC.json) | Native EasyEDA Standard schematic project |
-| [Reefwing-PCB-RevC.json](Reefwing-PCB-RevC.json) | Native EasyEDA Standard PCB with silkscreen |
+| [Reefwing-NFC-Card-RevD.json](Reefwing-NFC-Card-RevD.json) | Current native EasyEDA Standard schematic, with corrected LED roles and test pads |
+| [Reefwing-PCB-RevD.json](Reefwing-PCB-RevD.json) | Current PCB: rounded corners, corrected LED footprints and diagnostic pads |
+| [revisions/rev-d/](revisions/rev-d/) | Review, probe guide, previews, generators and validation reports |
+| [Reefwing-NFC-Card-RevC.json](Reefwing-NFC-Card-RevC.json) | Historical Rev C schematic; LED pin-role error documented |
+| [Reefwing-PCB-RevC.json](Reefwing-PCB-RevC.json) | Historical Rev C PCB, preserved for comparison |
 | [footprints/](footprints/) | Native antenna, programming-pad and solder-bridge footprints |
 | [REVIEW-REV-C.md](REVIEW-REV-C.md) | Review decisions, component changes and dated sourcing checks |
 | [firmware/](firmware/) | Arduino animation, NFC URL provisioning and simple LED wiring-test sketches, UPDI upload guide and validation results |
@@ -49,15 +52,9 @@ In EasyEDA Standard, use **File → Open → EasyEDA…** to import the schemati
 
 ## Checks and remaining work
 
-Local structural checks reported 29 components, 84 pins, matching schematic/PCB connectivity, and no unconnected nets. Independent clearance checks passed at 0.15 mm with intentional antenna winding joins excluded. Native EasyEDA reports four DRC findings associated with the antenna; the exact Rev C findings still need final review. These checks are not electrical, RF or manufacturing validation.
+Independent Rev D checks compare all 54 schematic symbols/PCB footprints and 109 pins, verify all 27 connected nets, and check 0.15 mm copper clearance with only the intentional antenna terminal contacts excluded. They also check the rounded outline, copper-to-edge clearance, test-pad paste/BOM exclusions and front silkscreen relief. Manufacturer LED A/K roles are checked explicitly, correcting the assumption that made the earlier Rev C connectivity checks insufficient.
 
-Before fabrication:
-
-- Correct and verify PCB BOM exclusions: C1 is DNP; L1, J1 and JP1 are copper features, not assembly placements. C1, L1 and J1 currently retain PCB-level BOM flags and must be excluded from any assembly export. The schematic exclusions are set.
-- Review Gerbers, solder mask, paste, component orientation, silkscreen clearances and JLCPCB assembly preview.
-- Recheck stock for all eight populated order codes. Stock readings in the review are dated observations, not reservations.
-- Upload and bench-test firmware, verify fuses, and check the 3 V UPDI Friend/probe-clip connections. Program with JP1 open and no NFC field; disconnect the programmer before bridging JP1.
-- Measure antenna resonance and tune C1 as needed; test harvested-rail startup and sag, LED brightness, phone compatibility and physical QR scanning.
+Follow the [Rev D fabrication handoff checklist](revisions/rev-d/README.md#validation-and-fabrication-handoff) before ordering. C1 remains DNP; C1, L1, J1, JP1 and the new test pads are excluded from assembly. The original eight purchased part codes are retained, but stock must be rechecked when ordering. Antenna resonance, harvested-rail startup, LED brightness and phone compatibility still need physical validation.
 
 The Medium design-process article is being prepared separately and is not yet published.
 

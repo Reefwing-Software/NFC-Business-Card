@@ -1,0 +1,302 @@
+[
+  {
+    "route_layer": 1,
+    "ref": "TP1",
+    "label": "GND",
+    "net": "GND",
+    "anchor": "J1.1",
+    "position_mm": [
+      31.479,
+      40.525
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP2",
+    "label": "VDD",
+    "net": "VDD",
+    "anchor": "J1.2",
+    "position_mm": [
+      27.431,
+      41.875
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP3",
+    "label": "VH",
+    "net": "VH",
+    "anchor": "C2.1",
+    "position_mm": [
+      14.101,
+      34.608
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP4",
+    "label": "SDA",
+    "net": "SDA",
+    "anchor": "R11.2",
+    "position_mm": [
+      20.603,
+      34.332
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 2,
+    "ref": "TP5",
+    "label": "SCL",
+    "net": "SCL",
+    "anchor": "R10.2",
+    "position_mm": [
+      9.316,
+      36.007
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP6",
+    "label": "FD",
+    "net": "FD_N",
+    "anchor": "R12.2",
+    "position_mm": [
+      26.653,
+      39.905
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 2,
+    "ref": "TP7",
+    "label": "UPDI",
+    "net": "UPDI",
+    "anchor": "J1.3",
+    "position_mm": [
+      32.662,
+      42.775
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP8",
+    "label": "G1",
+    "net": "LED_IN1",
+    "anchor": "R1.1",
+    "position_mm": [
+      43.251,
+      21.85
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP9",
+    "label": "A1",
+    "net": "R1_2",
+    "anchor": "R1.2",
+    "position_mm": [
+      41.553,
+      18.05
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP10",
+    "label": "G2",
+    "net": "LED_IN2",
+    "anchor": "R2.1",
+    "position_mm": [
+      38.668,
+      30.379
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP11",
+    "label": "A2",
+    "net": "R2_2",
+    "anchor": "R2.2",
+    "position_mm": [
+      42.058,
+      30.884
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP12",
+    "label": "G3",
+    "net": "LED_IN3",
+    "anchor": "R3.1",
+    "position_mm": [
+      38.097,
+      38.0
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP13",
+    "label": "A3",
+    "net": "R3_2",
+    "anchor": "R3.2",
+    "position_mm": [
+      42.058,
+      36.116
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP14",
+    "label": "G4",
+    "net": "LED_H1",
+    "anchor": "R4.1",
+    "position_mm": [
+      51.668,
+      17.379
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP15",
+    "label": "A4",
+    "net": "R4_2",
+    "anchor": "R4.2",
+    "position_mm": [
+      54.553,
+      17.95
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP16",
+    "label": "G5",
+    "net": "LED_H2",
+    "anchor": "R5.1",
+    "position_mm": [
+      51.668,
+      25.379
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP17",
+    "label": "A5",
+    "net": "R5_2",
+    "anchor": "R5.2",
+    "position_mm": [
+      54.553,
+      25.95
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP18",
+    "label": "G6",
+    "net": "LED_H3",
+    "anchor": "R6.1",
+    "position_mm": [
+      51.097,
+      32.0
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP19",
+    "label": "A6",
+    "net": "R6_2",
+    "anchor": "R6.2",
+    "position_mm": [
+      54.553,
+      30.05
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP20",
+    "label": "G7",
+    "net": "LED_H4",
+    "anchor": "R7.1",
+    "position_mm": [
+      51.668,
+      41.379
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP21",
+    "label": "A7",
+    "net": "R7_2",
+    "anchor": "R7.2",
+    "position_mm": [
+      54.553,
+      41.95
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP22",
+    "label": "G8",
+    "net": "LED_OUT1",
+    "anchor": "R8.1",
+    "position_mm": [
+      65.358,
+      22.025
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP23",
+    "label": "A8",
+    "net": "R8_2",
+    "anchor": "R8.2",
+    "position_mm": [
+      68.553,
+      21.05
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP24",
+    "label": "G9",
+    "net": "LED_OUT2",
+    "anchor": "R9.1",
+    "position_mm": [
+      65.668,
+      35.379
+    ],
+    "diameter_mm": 1.5
+  },
+  {
+    "route_layer": 1,
+    "ref": "TP25",
+    "label": "A9",
+    "net": "R9_2",
+    "anchor": "R9.2",
+    "position_mm": [
+      68.553,
+      35.95
+    ],
+    "diameter_mm": 1.5
+  }
+]
