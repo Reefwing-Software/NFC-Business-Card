@@ -40,7 +40,7 @@ The diagram is based on the supplied device datasheets and Rev C design. See the
 | [Reefwing-PCB-RevC.json](Reefwing-PCB-RevC.json) | Native EasyEDA Standard PCB with silkscreen |
 | [footprints/](footprints/) | Native antenna, programming-pad and solder-bridge footprints |
 | [REVIEW-REV-C.md](REVIEW-REV-C.md) | Review decisions, component changes and dated sourcing checks |
-| [firmware/](firmware/) | Arduino animation and NFC URL provisioning sketches, UPDI upload guide and validation results |
+| [firmware/](firmware/) | Arduino animation, NFC URL provisioning and simple LED wiring-test sketches, UPDI upload guide and validation results |
 | [FIRMWARE-REQUIREMENTS.md](FIRMWARE-REQUIREMENTS.md) | Firmware and programming-fixture requirements |
 | [artwork/README.md](artwork/README.md) | Artwork geometry and preview limitations |
 | [artwork/system-diagram/](artwork/system-diagram/) | Colour system block diagram, editable SVG, PNG and generator |

@@ -39,9 +39,36 @@ Other settings can remain at defaults. BOD voltage has no effect when BOD is dis
 
 Reopen JP1 before future uploads. If the serial port does not appear, consult the [UPDI Friend guide](https://learn.adafruit.com/adafruit-updi-friend?view=all) and macOS driver instructions. Close Serial Monitor before uploading. Check contact alignment, ground, 3 V, chip selection and JP1 before changing programming speed. No programmer was contacted during our compilation checks.
 
+## Simple LED wiring test
+
+If the normal animation uploads successfully but does not run, open
+[ReefwingLEDTest/ReefwingLEDTest.ino](ReefwingLEDTest/ReefwingLEDTest.ino).
+Use the same ATtiny816, **1 MHz internal**, **millis/micros disabled** and
+SerialUPDI settings above. Upload using the programmer, with **JP1 open**, the
+UPDI Friend at **3 V**, and no NFC field. Leave external power connected for
+this test. No repeat fuse burn is needed if the settings are already applied.
+
+The test lights **D1 → D2 → … → D9**, each for 500 ms, with 150 ms all-off
+gaps and an extra one-second pause after D9. It repeats indefinitely, starting
+with D1 immediately after setup. Only one LED is commanded on at a time.
+It uses Arduino GPIO calls and CPU busy-waits, with no RTC, interrupts, sleep,
+NFC field gating, I²C or Serial output. It does not change the stored NFC URL.
+
+- All nine LEDs working on stable external power supports the GPIO mapping
+  and LED wiring; investigate RTC/sleep timing in the normal animation next.
+- A consistently missing LED suggests its polarity, resistor, solder joints
+  or GPIO connection needs checking.
+- No LEDs, despite a verified upload, calls for measuring VDD at C3 and
+  checking the LED paths and MCU operation. It does not by itself identify
+  the failed component.
+
+This is a bench diagnostic, not low-power production firmware. Restore
+`ReefwingNFCCard` after diagnosis, and disconnect external power before
+closing JP1. A pass on 3 V does not prove operation on harvested power.
+
 ## Animation and power
 
-The sketch visits all 24 input–hidden–output combinations. Each node is lit for about 125 ms, with 62.5 ms all-off gaps and a 250 ms pause between paths. Timing uses the internal low-power oscillator and is approximate.
+The animation sketch visits all 24 input–hidden–output combinations. Each node is lit for about 125 ms, with 62.5 ms all-off gaps and a 250 ms pause between paths. Timing uses the internal low-power oscillator and is approximate.
 
 | LEDs | MCU GPIO | U2 package pins |
 | --- | --- | --- |

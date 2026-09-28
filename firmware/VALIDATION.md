@@ -8,6 +8,7 @@ FQBN: `megaTinyCore:megaavr:atxy6:chip=816,clock=1internal,millis=disabled,bodmo
 
 | Check | Result |
 | --- | --- |
+| ReefwingLEDTest, warnings set to all | PASS: 703 bytes flash, 0 bytes static RAM; no compiler warnings, megaTinyCore 2.6.11. Physical LED sweep still to be tested. |
 | Default sketch, warnings set to all | PASS: 792 bytes flash, 2 bytes static RAM; no compiler warnings |
 | Optional FD gating, `compiler.cpp.extra_flags=-DREEFWING_REQUIRE_FIELD=1` | PASS: 832 bytes flash, 2 bytes static RAM; no compiler warnings |
 | Incorrect `millis=enabled` configuration | Correctly rejected with an instruction to disable millis/micros |
