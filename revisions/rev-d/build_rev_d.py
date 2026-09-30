@@ -126,8 +126,7 @@ def copper(p):
     return result
 objects=copper(pcb)
 padmap={o['ref']:o for o in objects if o['pad']}
-targets=[('GND','J1.1'),('VDD','J1.2'),('VH','C2.1'),('SDA','R11.2'),('SCL','R10.2'),('FD','R12.2'),('UPDI','J1.3')]
-for i in range(1,10):targets.extend([(f'G{i}',f'R{i}.1'),(f'A{i}',f'R{i}.2')])
+targets=[('GND','J1.1'),('3V','C3.1')]
 testpoints=[]
 # Find a short, clear top-layer branch for each 1.5 mm exposed test pad.
 # New pads cannot occupy existing component lands or bodies, even same-net.
@@ -156,7 +155,7 @@ for index,(label,anchor) in enumerate(targets,1):
             for angle in range(0,360,15):
                 a=math.radians(angle);c=(round(origin[0]+radius*math.cos(a),3),round(origin[1]+radius*math.sin(a),3))
                 disk=Point(c).buffer(.75,quad_segs=24)
-                if not box(8.5,9,76.5,46).contains(disk):continue
+                if not box(8.5,9,24.0,46).contains(disk):continue
                 if disk.distance(obstacles)<.20 or disk.distance(bodyunion)<.35 or disk.distance(padobstacles)<.60:continue
                 if route_layer==2 and Point(c).buffer(.3).distance(route_obstacles)<.15:continue
                 for ps in [[o,c] for o in origins]+[[o,(o[0],c[1]),c] for o in origins]+[[o,(c[0],o[1]),c] for o in origins]:
@@ -193,8 +192,8 @@ for a in list(ss):
     if re.fullmatch(r'R[1-9]',r):
         b=next(b for b in q if b.startswith('P~') and b.split('^^')[0].split('~')[3]=='2');t=b.split('^^')[0].split('~');x,y=t[4:6]
         ss.append(f'N~{x}~{y}~0~#0000FF~{r}_2~{uid()}~start~{float(x)+4}~{float(y)-3}~~7pt~0')
-ss.append(f'T~L~70~1130~0~#17324D~~10pt~~~~comment~REV D: D1-D9 pin 1=A, pin 2=K. GPIO -> 1k -> A; K -> GND. Test pads: Gx=GPIO, Ax=anode.~1~start~{uid()}~0')
-ss.append(f'T~L~70~1152~0~#17324D~~9pt~~~~comment~TP pads: 1.5 mm copper, exposed mask, no paste / no assembly. Measure V(Gx)-V(Ax) across 1k for LED current.~1~start~{uid()}~0')
+ss.append(f'T~L~70~1130~0~#17324D~~10pt~~~~comment~REV D: D1-D9 pin 1=A, pin 2=K. GPIO -> 1k -> A; K -> GND. TP1=GND; TP2=VDD (3V external supply).~1~start~{uid()}~0')
+ss.append(f'T~L~70~1152~0~#17324D~~9pt~~~~comment~TP pads: 1.5 mm copper, exposed mask, no paste / no assembly. Measure supply between TP2 (3V/VDD) and TP1 (GND).~1~start~{uid()}~0')
 
 # Remove silkscreen from all exposed pads with 0.15 mm clearance.
 # Keep original back branding/QR; only the front silk needs probe-pad relief.

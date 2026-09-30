@@ -23,33 +23,14 @@ The independent validator checks the closed outline and copper-to-edge clearance
 
 ## Probe access
 
-There are **25 additional 1.5 mm diameter test pads on the front**, with exposed solder mask and no solder paste. They are copper features, not purchased or assembled parts. The SCL and UPDI test pads contain a 0.3 mm via hole to reach existing bottom-layer routing. Other new pads are solid copper discs.
+There are **two additional 1.5 mm diameter test pads on the front**, labelled **GND** (TP1) and **3V** (TP2). They have exposed solder mask and no solder paste and are excluded from assembly. Both pads are entirely to the **left of J1**, leaving the three unused positions of the six-pin pogo connector to its right free of new test pads.
 
 | Marking | Reference | Measurement |
 | --- | --- | --- |
 | GND | TP1 | Common meter/scope reference |
-| VDD | TP2 | MCU and NTAG VCC supply, downstream of JP1 |
-| VH | TP3 | NTAG harvested VOUT, upstream of JP1 |
-| SDA | TP4 | I²C data, U1 pin 5 / U2 PA1 |
-| SCL | TP5 | I²C clock, U1 pin 3 / U2 PA2 |
-| FD | TP6 | Active-low field-detect signal, U1 pin 4 / U2 PA3 |
-| UPDI | TP7 | U2 PA0 programming signal |
+| 3V | TP2 | VDD: MCU and NTAG VCC supply, downstream of JP1 |
 
-Each LED has a `Gx` pad on the GPIO side of its resistor and an `Ax` pad on its anode side. All cathodes connect to GND, so TP1 also lets you measure the voltage across any LED.
-
-| LED | GPIO / U2 pin | GPIO pad | Anode pad |
-| --- | --- | --- | --- |
-| D1 | PA4 / 5 | G1 / TP8 | A1 / TP9 |
-| D2 | PA5 / 6 | G2 / TP10 | A2 / TP11 |
-| D3 | PA6 / 7 | G3 / TP12 | A3 / TP13 |
-| D4 | PA7 / 8 | G4 / TP14 | A4 / TP15 |
-| D5 | PB0 / 14 | G5 / TP16 | A5 / TP17 |
-| D6 | PB1 / 13 | G6 / TP18 | A6 / TP19 |
-| D7 | PB2 / 12 | G7 / TP20 | A7 / TP21 |
-| D8 | PB3 / 11 | G8 / TP22 | A8 / TP23 |
-| D9 | PB4 / 10 | G9 / TP24 | A9 / TP25 |
-
-Use a scope for the moving animation, or hold one LED on for a meter reading. LED current is `(V(Gx) − V(Ax)) / 1000 Ω`; a 0.4 V resistor drop means 0.4 mA. Measure `Ax` to GND for LED forward voltage and `Gx` to GND for GPIO drive. The schematic includes every test pad, and [test-points.json](test-points.json) records their positions and nets.
+Measure the supply directly between these two pads. The **3V** label identifies the externally powered programming/test rail; NFC-harvested operation is not regulated to 3 V and may read lower. The schematic includes both pads; [test-points.json](test-points.json) records their positions and nets. The previous 23 signal/LED test points and their branches have been removed.
 
 For external-power testing or UPDI programming, open JP1, remove the NFC field, and apply regulated 3 V at J1/VDD with common GND. Do not feed external power into VH. Disconnect the programmer before closing JP1 for NFC operation. Do not probe the antenna with an ordinary probe when checking resonance; its capacitance changes the tuning.
 
@@ -65,7 +46,7 @@ For external-power testing or UPDI programming, open JP1, remove the NFC field, 
 | J1 | Square pin 1=GND, centre pin 2=VDD, pin 3=UPDI. Front-side probe contact. |
 | JP1 | Normally-open copper solder bridge, pin 1=VH and pin 2=VDD. No placed component. |
 | L1 | Printed coil; pad 1=ANT_A, pad 2=ANT_B. No placed component. |
-| TP1–TP25 | Single-pad copper features, no assembly orientation requirement. |
+| TP1–TP2 | Single-pad copper features, no assembly orientation requirement. |
 
 C1, L1, J1, JP1 and all test pads are excluded from PCB assembly/BOM exports. The 25 populated components and eight purchased part codes are unchanged. Stock must be checked again at ordering time.
 

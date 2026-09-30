@@ -8,7 +8,7 @@ Inspired by [Wilson Harper's NFC business card](https://wilsonharper.net/project
 
 ## Status: Rev D design candidate
 
-Rev D corrects the LED polarity error found during Rev C testing, adds 25 labelled probe pads, and rounds the 85 × 55 mm board's corners to a 3 mm radius. Both native files target **EasyEDA Standard** and JLCPCB manufacture. Rev C remains available as the historical manufactured baseline; do not reuse its LED polarity mapping for new boards.
+Rev D corrects the LED polarity error found during Rev C testing, adds two labelled supply probe pads, and rounds the 85 × 55 mm board's corners to a 3 mm radius. Both native files target **EasyEDA Standard** and JLCPCB manufacture. Rev C remains available as the historical manufactured baseline; do not reuse its LED polarity mapping for new boards.
 
 ![Rev D front preview](revisions/rev-d/pcb-front.png)
 
@@ -52,7 +52,7 @@ In EasyEDA Standard, use **File → Open → EasyEDA…** to import the schemati
 
 ## Checks and remaining work
 
-Independent Rev D checks compare all 54 schematic symbols/PCB footprints and 109 pins, verify all 27 connected nets, and check 0.15 mm copper clearance with only the intentional antenna terminal contacts excluded. They also check the rounded outline, copper-to-edge clearance, test-pad paste/BOM exclusions and front silkscreen relief. Manufacturer LED A/K roles are checked explicitly, correcting the assumption that made the earlier Rev C connectivity checks insufficient.
+Independent Rev D checks compare all 31 schematic symbols/PCB footprints and 86 pins, verify all 27 connected nets, and check 0.15 mm copper clearance with only the intentional antenna terminal contacts excluded. They also check the rounded outline, copper-to-edge clearance, test-pad paste/BOM exclusions and front silkscreen relief. Manufacturer LED A/K roles are checked explicitly, correcting the assumption that made the earlier Rev C connectivity checks insufficient.
 
 Follow the [Rev D fabrication handoff checklist](revisions/rev-d/README.md#validation-and-fabrication-handoff) before ordering. C1 remains DNP; C1, L1, J1, JP1 and the new test pads are excluded from assembly. The original eight purchased part codes are retained, but stock must be rechecked when ordering. Antenna resonance, harvested-rail startup, LED brightness and phone compatibility still need physical validation.
 

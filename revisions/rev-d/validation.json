@@ -1,7 +1,7 @@
 {
   "status": "PASS",
-  "components": 54,
-  "pins": 109,
+  "components": 31,
+  "pins": 86,
   "connected_nets": 27,
   "schematic_pin_nets": {
     "L1.1": "ANT_A",
@@ -89,37 +89,14 @@
     "R12.1": "VDD",
     "R12.2": "FD_N",
     "TP1.1": "GND",
-    "TP2.1": "VDD",
-    "TP3.1": "VH",
-    "TP4.1": "SDA",
-    "TP5.1": "SCL",
-    "TP6.1": "FD_N",
-    "TP7.1": "UPDI",
-    "TP8.1": "LED_IN1",
-    "TP9.1": "R1_2",
-    "TP10.1": "LED_IN2",
-    "TP11.1": "R2_2",
-    "TP12.1": "LED_IN3",
-    "TP13.1": "R3_2",
-    "TP14.1": "LED_H1",
-    "TP15.1": "R4_2",
-    "TP16.1": "LED_H2",
-    "TP17.1": "R5_2",
-    "TP18.1": "LED_H3",
-    "TP19.1": "R6_2",
-    "TP20.1": "LED_H4",
-    "TP21.1": "R7_2",
-    "TP22.1": "LED_OUT1",
-    "TP23.1": "R8_2",
-    "TP24.1": "LED_OUT2",
-    "TP25.1": "R9_2"
+    "TP2.1": "VDD"
   },
   "led_pin_roles": {
     "1": "A",
     "2": "K"
   },
   "led_rotation_deg": 180,
-  "test_pads": 25,
+  "test_pads": 2,
   "limitations": [
     "Independent geometry and netlist checks, not native EasyEDA ERC/DRC or Gerber validation.",
     "Intentional antenna winding contacts excluded from inter-net clearance check; RF geometry unchanged.",
@@ -133,5 +110,6 @@
   "minimum_copper_to_edge_mm": 4.2,
   "silk_to_pad_mask_clearance_mm": 0.15,
   "intentional_RF_contacts": 6,
-  "ic_land_orientation": "PASS: XQFN8 and VQFN20 top-view pin positions checked"
+  "ic_land_orientation": "PASS: XQFN8 and VQFN20 top-view pin positions checked",
+  "supply_test_pad_placement": "PASS: exactly TP1 GND and TP2 VDD, both entirely left of x=24 mm; J1 starts at x=24.71 mm"
 }

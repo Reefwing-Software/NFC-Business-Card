@@ -121,7 +121,7 @@ for a in p['shape']:
   for b in q:
    if b.startswith('PAD~'):
     z=b.split('~');pads[r+'.'+z[8]]=z
-assert len(components)==len(footprints)==54
+assert len(components)==len(footprints)==31
 assert set(pins)==set(pads)
 for k,v in pads.items():assert snets[k]==(v[7] or 'NC'),(k,snets[k],v[7])
 expected={'U1.1':'ANT_A','U1.2':'GND','U1.3':'SCL','U1.4':'FD_N','U1.5':'SDA','U1.6':'VDD','U1.7':'VH','U1.8':'ANT_B',
@@ -136,8 +136,8 @@ for i,(pin,name) in enumerate(zip([5,6,7,8,14,13,12,11,10],['IN1','IN2','IN3','H
 for pin in [9,15,16,17,18]:expected[f'U2.{pin}']='NC'
 for k,n in expected.items():assert snets[k]==n,(k,n,snets[k])
 assert pads['J1.1'][1]=='RECT'
-for r in ['C1','L1','J1','JP1']+[f'TP{i}' for i in range(1,26)]:assert footprints[r][0].split('~')[12]=='no',r
-for i in range(1,26):
+for r in ['C1','L1','J1','JP1']+[f'TP{i}' for i in range(1,3)]:assert footprints[r][0].split('~')[12]=='no',r
+for i in range(1,3):
  z=pads[f'TP{i}.1'];assert abs(float(z[4])*.254-1.5)<1e-5 and float(z[17])<0 and float(z[18])>0
 # Rev C sources must remain untouched.
 import hashlib
@@ -146,7 +146,7 @@ for f,h in json.load(open(P/'source-hashes.json')).items():assert hashlib.sha256
 old=json.load(open(ROOT/'Reefwing-PCB-RevC.json'))
 old_l1=next(a for a in old['shape'] if a.startswith('LIB~') and '#@$TEXT~P~' in a and any(b.startswith('TEXT~P~') and b.split('~')[10]=='L1' for b in a.split('#@$')))
 assert [b for b in old_l1.split('#@$') if b.startswith(('TRACK~','PAD~'))]==[b for b in footprints['L1'] if b.startswith(('TRACK~','PAD~'))]
-report={'status':'PASS','components':len(components),'pins':len(pins),'connected_nets':len(netpads),'schematic_pin_nets':snets,'led_pin_roles':{'1':'A','2':'K'},'led_rotation_deg':180,'test_pads':25,'limitations':['Independent geometry and netlist checks, not native EasyEDA ERC/DRC or Gerber validation.','Intentional antenna winding contacts excluded from inter-net clearance check; RF geometry unchanged.','Physical assembly orientation still requires JLCPCB preview and first-article verification.']}
+report={'status':'PASS','components':len(components),'pins':len(pins),'connected_nets':len(netpads),'schematic_pin_nets':snets,'led_pin_roles':{'1':'A','2':'K'},'led_rotation_deg':180,'test_pads':2,'limitations':['Independent geometry and netlist checks, not native EasyEDA ERC/DRC or Gerber validation.','Intentional antenna winding contacts excluded from inter-net clearance check; RF geometry unchanged.','Physical assembly orientation still requires JLCPCB preview and first-article verification.']}
 
 print('PASS: schematic/PCB pin nets, manufacturer LED roles, rotations, exclusions and source preservation')
 
@@ -196,5 +196,13 @@ for ref,positions in [('U1',u1),('U2',u2)]:
   z=pads[f'{ref}.{pin}'];assert math.dist(pt(z[2],z[3]),position)<.005,(ref,pin)
 assert all(float(pads[f'C1.{i}'][17])<0 for i in [1,2])
 report['ic_land_orientation']='PASS: XQFN8 and VQFN20 top-view pin positions checked'
-(P/'validation.json').write_text(json.dumps(report,indent=2)+'\n')
+
 print('PASS: U1/U2 physical pin order and C1 paste exclusion')
+
+assert {k for k in pads if k.startswith('TP')}=={'TP1.1','TP2.1'}
+assert snets['TP1.1']=='GND' and snets['TP2.1']=='VDD'
+for k in ['TP1.1','TP2.1']:
+ z=pads[k];assert pt(z[2],z[3])[0]+.75<=24.0, 'Test pad must remain left of programming connector'
+print('PASS: exactly two supply test pads, both left of J1')
+report['supply_test_pad_placement']='PASS: exactly TP1 GND and TP2 VDD, both entirely left of x=24 mm; J1 starts at x=24.71 mm'
+(P/'validation.json').write_text(json.dumps(report,indent=2)+'\n')
