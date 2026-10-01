@@ -9,7 +9,15 @@ The previews show copper through the solder mask for inspection; colours are ill
 
 ## LED polarity correction
 
-The KENTO KT-0603R drawing identifies **1 = anode (+), 2 = cathode (−)**. Rev C's custom symbols assigned those roles backwards. Rev D corrects the symbols and rotates each complete placed LED footprint 180° while retaining the manufacturer's pad numbers. Each anode now faces its series resistor (left in the front view); each cathode faces right and connects to GND. Rotation metadata and footprint marking geometry change together. Merely swapping net labels would not have been sufficient.
+The KENTO KT-0603R drawing identifies **1 = anode (+), 2 = cathode (−)**. Rev C's custom symbols assigned those roles backwards. As of 1 October 2026, Rev D uses the **supplied EasyEDA/LCSC symbols for all 25 populated components**, rather than redrawn symbols. Supplied pin names, numbers, electrical types and symbol graphics are preserved; only placement, instance IDs and reference/value fields change.
+
+The linked supplier PCB footprints are retained. D1–D9 stay at the corrected 180° PCB placement: anodes face their series resistors (left in the front view), and cathodes face right and connect to GND. The schematic uses the supplied LED symbol's original orientation; its pin numbers, rather than its drawing direction, determine the PCB connections.
+
+C1 uses supplied capacitor symbol graphics with a DNP value and no purchased SKU. Its former generic PCB footprint did not match the symbol's footprint link, so it now uses the linked C0603 footprint at 180°, preserving ANT_A on pad 1 and ANT_B on pad 2. The resized lands remain connected to the existing RF tracks and pass the clearance checks. C1 remains unpopulated, with no paste.
+
+Only L1, J1, JP1 and TP1/TP2 use project-specific symbols and footprints. [Supplier snapshots](../../libraries/README.md), [instance provenance](supplier-symbols.json) and the [supplier validation report](supplier-validation.json) document the source definitions and their linked footprints. The schematic uses named nets to keep the supplied symbols intact and the component groups readable.
+
+![Schematic using supplied symbols](schematic.png)
 
 The circuit remains **GPIO → 1 kΩ → pin 1/A → pin 2/K → GND**. Existing active-high firmware remains appropriate: HIGH lights an LED. This revision does not require reworking the existing Rev C cards; it is a new board design.
 
@@ -17,7 +25,7 @@ Manufacturer evidence: [KENTO KT-0603R drawing, PDF page 2](../../datasheets/KT-
 
 ## Corners and antenna
 
-The outline remains **85 × 55 mm**, with four **3 mm radius** corners implemented as connected native Board Outline tracks and arcs. The four-turn antenna copper and its terminal geometry are unchanged. C1 remains unpopulated initially and has no solder paste in Rev D; do **not** short its pads. Its pads are across the antenna, not a missing series connection.
+The outline remains **85 × 55 mm**, with four **3 mm radius** corners implemented as connected native Board Outline tracks and arcs. The four-turn antenna copper and its terminal geometry are unchanged; only the separate DNP C1 footprint changes as described above. C1 remains unpopulated initially and has no solder paste in Rev D; do **not** short its pads. Its pads are across the antenna, not a missing series connection.
 
 The independent validator checks the closed outline and copper-to-edge clearance. The continuous winding intentionally joins the two RF terminal nets; EasyEDA can report these as inter-net clearance errors. The validator exempts only contacts at the two antenna terminals, not arbitrary antenna routing. Native DRC and exported Gerber verification remain necessary before fabrication.
 
@@ -66,4 +74,4 @@ No native EasyEDA DRC pass, JLCPCB assembly-preview approval, or Rev D hardware 
 
 ## Regeneration
 
-`build_rev_d.py` derives Rev D from immutable Rev C files; `source-hashes.json` identifies that baseline. Dependencies are listed in `requirements.txt`. `render_rev_d.py` generates SVG previews from actual PCB geometry; the PNGs are rasterized from those SVGs. The independent validator does not invoke the generator.
+`build_rev_d.py` derives Rev D from immutable Rev C files; `source-hashes.json` identifies that baseline. Dependencies are listed in `requirements.txt`. `supplier_symbols.py` places the supplied schematic definitions; `link_tuning_capacitor.py` links C1 to its supplied footprint. `check_supplier_symbols.py` audits source pin metadata and physical pad geometry and is also run by the main validator. `render_schematic.py` and `render_rev_d.py` generate SVG previews from actual PCB geometry; the PNGs are rasterized from those SVGs. The independent validator does not invoke the generator.

@@ -13,6 +13,7 @@ def render(layer,copper=False):
   if k=='TRACK' and int(t[2])==layer:out.append(f'<polyline points="{t[4]}" fill="none" stroke="{col}" stroke-width="{t[1]}" stroke-linejoin="round" stroke-linecap="round"/>')
   elif k=='SOLIDREGION' and int(t[1])==layer:out.append(f'<path d="{t[3]}" fill="{col}"/>')
   elif k=='TEXT' and int(t[7])==layer and t[11]:out.append(f'<path d="{t[11]}" fill="none" stroke="{col}" stroke-width="{t[4]}" stroke-linecap="round"/>')
+  elif k=='ARC' and int(t[2])==layer:out.append(f'<path d="{t[4]}" fill="none" stroke="{col}" stroke-width="{t[1]}"/>')
   elif k=='CIRCLE' and int(t[5])==layer:out.append(f'<circle cx="{t[1]}" cy="{t[2]}" r="{t[3]}" fill="none" stroke="{col}" stroke-width="{t[4]}"/>')
  return ''.join(out)
 def copper(layer,pads=True):

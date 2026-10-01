@@ -171,6 +171,8 @@ for t in outline:
   ends.extend([tuple(v[:2]),tuple(v[-2:])])
 assert all(sum(math.dist(a,b)<1e-5 for b in ends)==2 for a in ends)
 mask=unary_union([geometry(o).buffer(.075+.15-1e-4) for o in objects if o['layer']==1 and '.' in o['ref']])
+sys.path.insert(0,str(P))
+from arc_geometry import geometry as arc_geometry
 silkerrors=[]
 for a in p['shape']:
  for b in (a.split('#@$')[1:] if a.startswith('LIB~') else [a]):
@@ -179,6 +181,7 @@ for a in p['shape']:
    v=list(map(float,re.findall(r'-?\d+(?:\.\d+)?',t[3])));g=Polygon([pt(*z) for z in zip(v[::2],v[1::2])])
   elif t[0]=='TRACK' and t[2]=='3':
    v=list(map(float,t[4].split()));g=LineString([pt(*z) for z in zip(v[::2],v[1::2])]).buffer(float(t[1])*.254/2)
+  elif t[0]=='ARC' and t[2]=='3':g=arc_geometry(t)
   if g is not None and g.intersection(mask).area>1e-6:silkerrors.append({'id':t[-1],'area':g.intersection(mask).area,'bounds':g.bounds})
 if silkerrors:print('Silk examples:',silkerrors[:5])
 assert not silkerrors,len(silkerrors)
@@ -205,4 +208,9 @@ for k in ['TP1.1','TP2.1']:
  z=pads[k];assert pt(z[2],z[3])[0]+.75<=24.0, 'Test pad must remain left of programming connector'
 print('PASS: exactly two supply test pads, both left of J1')
 report['supply_test_pad_placement']='PASS: exactly TP1 GND and TP2 VDD, both entirely left of x=24 mm; J1 starts at x=24.71 mm'
+
+
+import runpy
+runpy.run_path(str(P/'check_supplier_symbols.py'),run_name='__main__')
+report['supplier_definitions']='PASS: see supplier-validation.json'
 (P/'validation.json').write_text(json.dumps(report,indent=2)+'\n')

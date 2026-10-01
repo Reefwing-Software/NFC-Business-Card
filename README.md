@@ -8,7 +8,7 @@ Inspired by [Wilson Harper's NFC business card](https://wilsonharper.net/project
 
 ## Status: Rev D design candidate
 
-Rev D corrects the LED polarity error found during Rev C testing, adds two labelled supply probe pads, and rounds the 85 × 55 mm board's corners to a 3 mm radius. Both native files target **EasyEDA Standard** and JLCPCB manufacture. Rev C remains available as the historical manufactured baseline; do not reuse its LED polarity mapping for new boards.
+Rev D corrects the LED polarity error found during Rev C testing, adds two labelled supply probe pads, and rounds the 85 × 55 mm board's corners to a 3 mm radius. Purchased components now use supplied EasyEDA/LCSC symbols and their linked footprints, checked against the saved source definitions. Both native files target **EasyEDA Standard** and JLCPCB manufacture. Rev C remains available as the historical manufactured baseline; do not reuse its LED polarity mapping for new boards.
 
 ![Rev D front preview](revisions/rev-d/pcb-front.png)
 

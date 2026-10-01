@@ -1,6 +1,6 @@
 # Rev D change tracker
 
-Updated 30 September 2026. The user authorized the redesign after Rev C LED testing. The earlier hold on schematic/PCB changes is superseded.
+Updated 1 October 2026. The user authorized the redesign after Rev C LED testing. The earlier hold on schematic/PCB changes is superseded.
 
 | ID | Change | Status | Evidence / remaining work |
 | --- | --- | --- | --- |
@@ -8,6 +8,7 @@ Updated 30 September 2026. The user authorized the redesign after Rev C LED test
 | D-002 | Correct D1–D9 polarity and assembly orientation | Implemented | Manufacturer 1=A, 2=K; schematic corrected; complete LED footprints rotated 180°; resistor feeds A and K is GND. JLCPCB physical assembly preview and first-article test pending. |
 | D-003 | Accessible troubleshooting pads | Implemented | Two labelled 1.5 mm front pads: GND and 3V (VDD), entirely left of J1 to avoid the six-pin pogo connector extension to its right. Removed the other 23 test points. Matching schematic symbols and no paste/assembly. |
 | D-004 | Assembly exclusions and artwork revision | Implemented | C1 DNP/paste disabled; L1/J1/JP1/test pads excluded; silk relieved around pads and labels; both faces identify Rev D. |
+| D-005 | Use supplied symbols and linked footprints | Implemented | All 25 populated components now use the saved supplied library symbols without pin-role edits. C1 uses supplied capacitor graphics as DNP and the linked footprint; custom definitions remain only for PCB copper features. Source metadata and physical land geometry audited. |
 
 Use [Rev D review and testing guide](revisions/rev-d/README.md) for the detailed pinout, probe map, checks and remaining fabrication handoff. Rev C JSON files are preserved unchanged; source hashes are stored with Rev D.
 

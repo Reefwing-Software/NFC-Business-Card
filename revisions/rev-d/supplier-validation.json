@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "supplier_instances": 26,
+  "populated_instances": 25,
+  "part_codes": [
+    "C107100",
+    "C14663",
+    "C2052778",
+    "C21190",
+    "C2286",
+    "C25803",
+    "C25804",
+    "C710403"
+  ],
+  "checks": [
+    "Placed pin numbers, names, electrical types and relative positions match saved supplied symbols.",
+    "Symbol UUID and linked footprint UUID match source definitions.",
+    "PCB pad numbers, shapes, sizes and positions match linked footprints after placement rotation.",
+    "C1 uses supplied capacitor graphics as DNP without assigning a purchased part."
+  ],
+  "note": "Supplier snapshots are versioned; this is not a fresh stock check or native EasyEDA ERC/DRC."
+}

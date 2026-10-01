@@ -49,18 +49,6 @@ for node in [sch,sch['schematics'][0]]:
     node['description']='Rev D: corrected LED polarity, R3 mm board corners and diagnostic test pads.'
 sch['schematics'][0]['dataStr']['head']['c_para']['name']='Reefwing Embedded AI NFC Card Rev D'
 pcb['head']['c_para']['name']='Reefwing NFC Card Rev D'
-for i,a in enumerate(ss):
-    if a.startswith('LIB~'):
-        q=a.split('#@$');r=ref(q,True)
-        if re.fullmatch(r'D[1-9]',r):
-            for j,b in enumerate(q):
-                if b.startswith('P~'):
-                    z=b.split('^^');t=z[0].split('~');new='1' if t[3]=='2' else '2';t[3]=new;z[0]='~'.join(t)
-                    t=z[4].split('~');t[4]=new;z[4]='~'.join(t);q[j]='^^'.join(z)
-            ss[i]='#@$'.join(q)
-    else:
-        ss[i]=a.replace('Rev C - review corrections | 2026-09-12','Rev D - LED polarity / test access | 2026-09-28').replace('1.25 MHz (20 MHz / 16)','1 MHz (16 MHz / 16)').replace('NFC URL is programmed over RF. I2C is available for configuration; avoid bus activity during animation.','Write the NFC URL using the I2C provisioning sketch or RF. Avoid I2C activity during animation.')
-
 # Rotate each LED's complete supplier footprint 180 degrees. Reference text
 # stays readable. Pin numbers keep manufacturer meaning: 1=A, 2=K.
 def turn180(b,cx,cy):
@@ -95,6 +83,10 @@ for i,a in enumerate(pcb['shape']):
             if b.startswith('PAD~'):
                 t=q[j].split('~');t[7]='R'+r[1:]+'_2' if t[8]=='1' else 'GND';q[j]='~'.join(t)
     q[0]='~'.join(h);pcb['shape'][i]='#@$'.join(q)
+
+sys.path.insert(0,str(HERE))
+from link_tuning_capacitor import apply as link_c1
+link_c1(pcb,uid)
 
 # Native connected lines and arcs, 85 x 55 mm, corner radius 3 mm.
 pcb['shape']=[a for a in pcb['shape'] if not (a.startswith(('TRACK~','ARC~')) and a.split('~')[2]=='10')]
@@ -198,10 +190,12 @@ ss.append(f'T~L~70~1152~0~#17324D~~9pt~~~~comment~TP pads: 1.5 mm copper, expose
 # Remove silkscreen from all exposed pads with 0.15 mm clearance.
 # Keep original back branding/QR; only the front silk needs probe-pad relief.
 mask=unary_union([o['g'].buffer(.24) for o in objects if o['pad'] and o['layer']==1])
+from arc_geometry import geometry as arc_geometry
 def clip_shape(a):
     t=a.split('~');k=t[0];g=None
     if k=='SOLIDREGION' and t[1]=='3':g=pathpoly(t[3])
     elif k=='TRACK' and t[2]=='3':g=LineString([mm(*p) for p in points(t[4])]).buffer(float(t[1])*U/2)
+    elif k=='ARC' and t[2]=='3':g=arc_geometry(t)
     if g is None or not g.intersects(mask):return [a]
     g=g.difference(mask);out=[]
     for poly in ([g] if g.geom_type=='Polygon' else getattr(g,'geoms',[])):
@@ -254,6 +248,10 @@ pcb['shape']=[a for a in pcb['shape'] if not (a.startswith('SOLIDREGION~4~') and
 for a in letters('REEFWING / REV D',8,45,1.1):
     t=a.split('~');t[1]='4';ps=[(85-x,y) for x,y in [mm(*v) for v in points(t[3])]]
     t[3]='M '+' L '.join(' '.join(num(v) for v in xy(p)) for p in ps)+' Z';pcb['shape'].append('~'.join(t))
+
+sys.path.insert(0,str(HERE))
+from supplier_symbols import apply
+apply(sch,pcb)
 
 (ROOT/'Reefwing-NFC-Card-RevD.json').write_text(json.dumps(sch,ensure_ascii=False,indent=2)+'\n')
 (ROOT/'Reefwing-PCB-RevD.json').write_text(json.dumps(pcb,ensure_ascii=False,indent=2)+'\n')

@@ -1,0 +1,314 @@
+[
+  {
+    "ref": "C1",
+    "code": "C14663",
+    "populated": false,
+    "symbol_uuid": "154b66255b01a09bf1c88bb1ea89be78",
+    "footprint_uuid": "f8151fdc728a41ebbc304e11d39e5437",
+    "offset": [
+      390.0,
+      370.0
+    ],
+    "source_sha256": "54afed8248b86642deb5b4fd57193b31755812faa544f889f41ca72e42e23f3a"
+  },
+  {
+    "ref": "C2",
+    "code": "C107100",
+    "populated": true,
+    "symbol_uuid": "f3898d2376e74aac9c2171fb37e5cd55",
+    "footprint_uuid": "f8151fdc728a41ebbc304e11d39e5437",
+    "offset": [
+      155.0,
+      460.0
+    ],
+    "source_sha256": "8533e82d3e578b79cd52b6de066eff0a60e5ef4ccf68167e676e59eaeb03b8d3"
+  },
+  {
+    "ref": "R10",
+    "code": "C25804",
+    "populated": true,
+    "symbol_uuid": "b210af5a1436310a86e8b108e2e5a90b",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      570.0,
+      630.0
+    ],
+    "source_sha256": "998d2c26a13e5e1b90ffb4ce14a37d3ad40294e0b4e9f4d496ca03bd590a04e5"
+  },
+  {
+    "ref": "R11",
+    "code": "C25804",
+    "populated": true,
+    "symbol_uuid": "b210af5a1436310a86e8b108e2e5a90b",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      790.0,
+      630.0
+    ],
+    "source_sha256": "998d2c26a13e5e1b90ffb4ce14a37d3ad40294e0b4e9f4d496ca03bd590a04e5"
+  },
+  {
+    "ref": "C3",
+    "code": "C14663",
+    "populated": true,
+    "symbol_uuid": "154b66255b01a09bf1c88bb1ea89be78",
+    "footprint_uuid": "f8151fdc728a41ebbc304e11d39e5437",
+    "offset": [
+      390.0,
+      460.0
+    ],
+    "source_sha256": "54afed8248b86642deb5b4fd57193b31755812faa544f889f41ca72e42e23f3a"
+  },
+  {
+    "ref": "R1",
+    "code": "C21190",
+    "populated": true,
+    "symbol_uuid": "597701dbde98d3183fe5df5fb870ec57",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      1400.0,
+      185.0
+    ],
+    "source_sha256": "2e7149cb7cddd553470f6f87e50a998691be699ee87c1ab3631bf704ffedfe9f"
+  },
+  {
+    "ref": "D1",
+    "code": "C2286",
+    "populated": true,
+    "symbol_uuid": "0806368f73e1232ca543f14a515367b4",
+    "footprint_uuid": "5294e4298d7a4d9d966148b3893abd7c",
+    "offset": [
+      1190.0,
+      190.0
+    ],
+    "source_sha256": "d6ecf5c75bdbbd7eb47a82f61f3bafc6c2fe0d46cd94f9a21bd8c558fa6d5ba5"
+  },
+  {
+    "ref": "R2",
+    "code": "C21190",
+    "populated": true,
+    "symbol_uuid": "597701dbde98d3183fe5df5fb870ec57",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      1400.0,
+      265.0
+    ],
+    "source_sha256": "2e7149cb7cddd553470f6f87e50a998691be699ee87c1ab3631bf704ffedfe9f"
+  },
+  {
+    "ref": "D2",
+    "code": "C2286",
+    "populated": true,
+    "symbol_uuid": "0806368f73e1232ca543f14a515367b4",
+    "footprint_uuid": "5294e4298d7a4d9d966148b3893abd7c",
+    "offset": [
+      1190.0,
+      270.0
+    ],
+    "source_sha256": "d6ecf5c75bdbbd7eb47a82f61f3bafc6c2fe0d46cd94f9a21bd8c558fa6d5ba5"
+  },
+  {
+    "ref": "R3",
+    "code": "C21190",
+    "populated": true,
+    "symbol_uuid": "597701dbde98d3183fe5df5fb870ec57",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      1400.0,
+      345.0
+    ],
+    "source_sha256": "2e7149cb7cddd553470f6f87e50a998691be699ee87c1ab3631bf704ffedfe9f"
+  },
+  {
+    "ref": "D3",
+    "code": "C2286",
+    "populated": true,
+    "symbol_uuid": "0806368f73e1232ca543f14a515367b4",
+    "footprint_uuid": "5294e4298d7a4d9d966148b3893abd7c",
+    "offset": [
+      1190.0,
+      350.0
+    ],
+    "source_sha256": "d6ecf5c75bdbbd7eb47a82f61f3bafc6c2fe0d46cd94f9a21bd8c558fa6d5ba5"
+  },
+  {
+    "ref": "R4",
+    "code": "C21190",
+    "populated": true,
+    "symbol_uuid": "597701dbde98d3183fe5df5fb870ec57",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      1400.0,
+      425.0
+    ],
+    "source_sha256": "2e7149cb7cddd553470f6f87e50a998691be699ee87c1ab3631bf704ffedfe9f"
+  },
+  {
+    "ref": "D4",
+    "code": "C2286",
+    "populated": true,
+    "symbol_uuid": "0806368f73e1232ca543f14a515367b4",
+    "footprint_uuid": "5294e4298d7a4d9d966148b3893abd7c",
+    "offset": [
+      1190.0,
+      430.0
+    ],
+    "source_sha256": "d6ecf5c75bdbbd7eb47a82f61f3bafc6c2fe0d46cd94f9a21bd8c558fa6d5ba5"
+  },
+  {
+    "ref": "R5",
+    "code": "C21190",
+    "populated": true,
+    "symbol_uuid": "597701dbde98d3183fe5df5fb870ec57",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      1400.0,
+      505.0
+    ],
+    "source_sha256": "2e7149cb7cddd553470f6f87e50a998691be699ee87c1ab3631bf704ffedfe9f"
+  },
+  {
+    "ref": "D5",
+    "code": "C2286",
+    "populated": true,
+    "symbol_uuid": "0806368f73e1232ca543f14a515367b4",
+    "footprint_uuid": "5294e4298d7a4d9d966148b3893abd7c",
+    "offset": [
+      1190.0,
+      510.0
+    ],
+    "source_sha256": "d6ecf5c75bdbbd7eb47a82f61f3bafc6c2fe0d46cd94f9a21bd8c558fa6d5ba5"
+  },
+  {
+    "ref": "R6",
+    "code": "C21190",
+    "populated": true,
+    "symbol_uuid": "597701dbde98d3183fe5df5fb870ec57",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      1400.0,
+      585.0
+    ],
+    "source_sha256": "2e7149cb7cddd553470f6f87e50a998691be699ee87c1ab3631bf704ffedfe9f"
+  },
+  {
+    "ref": "D6",
+    "code": "C2286",
+    "populated": true,
+    "symbol_uuid": "0806368f73e1232ca543f14a515367b4",
+    "footprint_uuid": "5294e4298d7a4d9d966148b3893abd7c",
+    "offset": [
+      1190.0,
+      590.0
+    ],
+    "source_sha256": "d6ecf5c75bdbbd7eb47a82f61f3bafc6c2fe0d46cd94f9a21bd8c558fa6d5ba5"
+  },
+  {
+    "ref": "R7",
+    "code": "C21190",
+    "populated": true,
+    "symbol_uuid": "597701dbde98d3183fe5df5fb870ec57",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      1400.0,
+      665.0
+    ],
+    "source_sha256": "2e7149cb7cddd553470f6f87e50a998691be699ee87c1ab3631bf704ffedfe9f"
+  },
+  {
+    "ref": "D7",
+    "code": "C2286",
+    "populated": true,
+    "symbol_uuid": "0806368f73e1232ca543f14a515367b4",
+    "footprint_uuid": "5294e4298d7a4d9d966148b3893abd7c",
+    "offset": [
+      1190.0,
+      670.0
+    ],
+    "source_sha256": "d6ecf5c75bdbbd7eb47a82f61f3bafc6c2fe0d46cd94f9a21bd8c558fa6d5ba5"
+  },
+  {
+    "ref": "R8",
+    "code": "C21190",
+    "populated": true,
+    "symbol_uuid": "597701dbde98d3183fe5df5fb870ec57",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      1400.0,
+      745.0
+    ],
+    "source_sha256": "2e7149cb7cddd553470f6f87e50a998691be699ee87c1ab3631bf704ffedfe9f"
+  },
+  {
+    "ref": "D8",
+    "code": "C2286",
+    "populated": true,
+    "symbol_uuid": "0806368f73e1232ca543f14a515367b4",
+    "footprint_uuid": "5294e4298d7a4d9d966148b3893abd7c",
+    "offset": [
+      1190.0,
+      750.0
+    ],
+    "source_sha256": "d6ecf5c75bdbbd7eb47a82f61f3bafc6c2fe0d46cd94f9a21bd8c558fa6d5ba5"
+  },
+  {
+    "ref": "R9",
+    "code": "C21190",
+    "populated": true,
+    "symbol_uuid": "597701dbde98d3183fe5df5fb870ec57",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      1400.0,
+      825.0
+    ],
+    "source_sha256": "2e7149cb7cddd553470f6f87e50a998691be699ee87c1ab3631bf704ffedfe9f"
+  },
+  {
+    "ref": "D9",
+    "code": "C2286",
+    "populated": true,
+    "symbol_uuid": "0806368f73e1232ca543f14a515367b4",
+    "footprint_uuid": "5294e4298d7a4d9d966148b3893abd7c",
+    "offset": [
+      1190.0,
+      830.0
+    ],
+    "source_sha256": "d6ecf5c75bdbbd7eb47a82f61f3bafc6c2fe0d46cd94f9a21bd8c558fa6d5ba5"
+  },
+  {
+    "ref": "U1",
+    "code": "C710403",
+    "populated": true,
+    "symbol_uuid": "83750b9ec8e049408701bb76a50ed8f9",
+    "footprint_uuid": "9cb3c3dc03b740d6bb3de64bd413a824",
+    "offset": [
+      -150.0,
+      -90.0
+    ],
+    "source_sha256": "f858cf4fe656588d9f05e4716982d37fa3aa708bdd6bed03d52cb1272d284485"
+  },
+  {
+    "ref": "U2",
+    "code": "C2052778",
+    "populated": true,
+    "symbol_uuid": "30bcd0f279744769b8c10ab67918ff96",
+    "footprint_uuid": "6e26d1c72524402b9563ff7a1e021238",
+    "offset": [
+      350.0,
+      -70.0
+    ],
+    "source_sha256": "e91e1cfcabc148fccf4f439d5835faf872fe4b4c5e92de94dc9d27cbcd881524"
+  },
+  {
+    "ref": "R12",
+    "code": "C25803",
+    "populated": true,
+    "symbol_uuid": "5ff01e5b28266f76e3c6ac889a7fdd07",
+    "footprint_uuid": "398691f1f785460098bbe5ee6590333c",
+    "offset": [
+      570.0,
+      740.0
+    ],
+    "source_sha256": "7ada75c354723f953455ffe9d4fccc52ff415bf2ec1f123609ef0113e18eaedb"
+  }
+]
