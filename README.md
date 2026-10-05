@@ -14,6 +14,8 @@ Rev D corrects the LED polarity error found during Rev C testing, adds two label
 
 See the [Rev D review, test-pad guide and orientation checks](revisions/rev-d/README.md). This is **not yet a manufacturing release**: native EasyEDA ERC/DRC, exported Gerbers, JLCPCB assembly orientation and first-article testing remain to be verified. Preview colours are illustrative.
 
+Project design guidance is recorded in [PCB lessons learned](PCB-LESSONS-LEARNED.md), with a root [AGENTS.md](AGENTS.md) directing future project chats to it.
+
 ## Design
 
 - NXP NT3H2111 NTAG I²C plus with a four-turn PCB antenna and optional tuning capacitor.
